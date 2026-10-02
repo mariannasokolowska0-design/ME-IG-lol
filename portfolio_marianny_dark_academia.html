@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marianna | Portfolio & Klub Debat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --bg-deep-forest: #0b1d13;
+            --bg-dark-emerald: #122b1e;
+            --bg-card: #183727;
+            --accent-gold: #d4af37;
+            --accent-brass: #c5a059;
+            --text-parchment: #f4ebd9;
+            --text-muted: #a3b899;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-deep-forest);
+            color: var(--text-parchment);
+            font-family: 'EB Garamond', serif;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Gold Glow and Border Effect */
+        .gold-border-box {
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .gold-border-box:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Paper Overlay Texture Sim */
+        .parchment-bg {
+            background-color: rgba(244, 235, 217, 0.03);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep-forest);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-dark-emerald);
+            border: 1px solid var(--accent-brass);
+            border-radius: 4px;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Audio/Visual Switch Effects */
+        .amber-glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-900 selection:text-amber-100">
+
+    <header class="sticky top-0 z-50 parchment-bg border-b border-amber-900/40 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-cinzel text-xl text-amber-200 font-bold tracking-widest flex items-center gap-2">
+                <i data-lucide="feather" class="w-5 h-5 text-amber-400"></i>
+                MARIANNA
+            </a>
+            
+            <nav class="hidden md:flex gap-8 font-cinzel text-sm tracking-wider text-amber-100/80">
+                <a href="#about" class="hover:text-amber-300 transition-colors">O Mnie</a>
+                <a href="#debate" class="hover:text-amber-300 transition-colors">Klub Debat</a>
+                <a href="#academic" class="hover:text-amber-300 transition-colors">Edukacja</a>
+                <a href="#quotes" class="hover:text-amber-300 transition-colors">Refleksje</a>
+                <a href="#contact" class="hover:text-amber-300 transition-colors">Kontakt</a>
+            </nav>
+
+            <button id="audio-toggle" class="p-2 border border-amber-800/60 rounded-full hover:border-amber-400 text-amber-300 transition-all" title="Włącz dźwięk otoczenia (Deszcz i Biblioteka)">
+                <i data-lucide="volume-x" id="sound-icon" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="min-h-[85vh] flex items-center justify-center relative px-6 py-20 text-center">
+            <div class="max-w-3xl mx-auto space-y-8 reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-emerald-950/60 text-amber-300 text-sm font-cinzel tracking-widest">
+                    <i data-lucide="book-open" class="w-4 h-4"></i> Pilna Uczennica & Mówczyni
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-amber-100 leading-tight">
+                    Większa siła leży w <span class="italic text-amber-400">argumencie</span>,<br>niż w samych słowach.
+                </h1>
+
+                <p class="text-xl md:text-2xl text-emerald-100/80 italic font-light max-w-2xl mx-auto">
+                    „Aeterno te veritatis studio devove” – Poświęć się wiecznym poszukiwaniom prawdy.
+                </p>
+
+                <div class="pt-6 flex justify-center gap-4">
+                    <a href="#debate" class="px-8 py-3 bg-amber-900/40 border border-amber-500/50 hover:bg-amber-800/50 text-amber-200 rounded-sm font-cinzel text-sm tracking-widest transition-all shadow-lg hover:shadow-amber-900/30">
+                        Odkryj Klub Debat
+                    </a>
+                    <a href="#about" class="px-8 py-3 border border-emerald-700/50 hover:border-amber-500/30 text-emerald-200 rounded-sm font-cinzel text-sm tracking-widest transition-all">
+                        O Mariannie
+                    </a>
+                </div>
+            </div>
+            
+            <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-amber-400/60 hover:text-amber-300 animate-bounce">
+                <i data-lucide="chevron-down" class="w-8 h-8"></i>
+            </a>
+        </section>
+
+        <section id="about" class="py-24 px-6 border-t border-amber-900/30 bg-emerald-950/40">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-5 reveal">
+                        <div class="relative gold-border-box p-3 bg-emerald-900/30 rounded-lg">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800" alt="Książki i filiżanka herbaty" class="rounded object-cover h-[400px] w-full filter brightness-90 contrast-105" onerror="this.src='https://placehold.co/400x500/183727/d4af37?text=Marianna'">
+                            <div class="absolute -bottom-4 -right-4 bg-emerald-900 border border-amber-500/40 p-4 rounded text-center">
+                                <span class="block font-cinzel text-2xl text-amber-300 font-bold">100%</span>
+                                <span class="text-xs text-amber-100/70 tracking-wider uppercase">Oddania Nauce</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-7 space-y-6 reveal">
+                        <div class="flex items-center gap-3 text-amber-400">
+                            <i data-lucide="compass" class="w-5 h-5"></i>
+                            <h2 class="font-cinzel text-lg tracking-widest uppercase">Sylwetka Uczennicy</h2>
+                        </div>
+                        <h3 class="text-4xl font-bold text-amber-100">Cześć, mam na imię Marianna.</h3>
+                        <p class="text-lg text-emerald-100/90 leading-relaxed">
+                            Jestem uczennicą liceum o niegasnącej ciekawości świata, zafascynowaną historią idei, klasyczną literaturą i filozofią dyskursu. Moja codzienna rutyna opiera się na ciągłym poszukiwaniu wiedzy – od zapachu starych tomów w szkolnej bibliotece, po późne wieczory spędzone na pisaniu esejów i przygotowywaniu linii argumentacyjnych.
+                        </p>
+                        <p class="text-lg text-emerald-100/90 leading-relaxed">
+                            Veritas i Ratio – Prawda i Rozsądek – to zasady, którymi kieruję się zarówno przy licealnej ławce, jak i podczas zaciętych debat oxfordzkich.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-amber-900/40 text-sm">
+                            <div>
+                                <h4 class="font-cinzel text-amber-300 font-bold">Główne Zainteresowania</h4>
+                                <p class="text-emerald-200/80">Retoryka, Historia powszechna, Literatura XIX w.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-cinzel text-amber-300 font-bold">Cel Akademicki</h4>
+                                <p class="text-emerald-200/80">Studia Prawo / Filozofia & Stosunki Międzynarodowe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="debate" class="py-24 px-6 relative">
+            <div class="max-w-5xl mx-auto space-y-16">
+                <div class="text-center space-y-4 max-w-2xl mx-auto reveal">
+                    <div class="inline-flex items-center gap-2 text-amber-400 font-cinzel text-sm tracking-widest uppercase">
+                        <i data-lucide="scale" class="w-4 h-4"></i> Sztuka Argumentacji
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-amber-100">Klub Debat Oxfordzkich</h2>
+                    <p class="text-emerald-100/80 text-lg">
+                        Debata to nie spór o wygraną, ale wspólne dążenie do pełniejszego zrozumienia zawiłości współczesnego i dawnego świata.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="gold-border-box p-8 bg-emerald-950/60 rounded-sm space-y-4 reveal">
+                        <div class="text-amber-400 p-3 bg-emerald-900/50 inline-block rounded">
+                            <i data-lucide="mic" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-amber-200">Pierwsza Mówczyni</h3>
+                        <p class="text-emerald-100/80 text-base leading-relaxed">
+                            Specjalizuję się w definiowaniu pola sporu, zarysowywaniu filozoficznego tła tezy oraz budowaniu pierwszych filarów argumentacyjnych drużyny Propozycji lub Opozycji.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="gold-border-box p-8 bg-emerald-950/60 rounded-sm space-y-4 reveal">
+                        <div class="text-amber-400 p-3 bg-emerald-900/50 inline-block rounded">
+                            <i data-lucide="award" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-amber-200">Osiągnięcia Turniejowe</h3>
+                        <p class="text-emerald-100/80 text-base leading-relaxed">
+                            Uczestniczka Turniejów Ogólnopolskich. Finalistka lokalnych lig debat szkolnych oraz laureatka wyróżnień dla najlepszych mówców w kategoriach spójności wywodu.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="gold-border-box p-8 bg-emerald-950/60 rounded-sm space-y-4 reveal">
+                        <div class="text-amber-400 p-3 bg-emerald-900/50 inline-block rounded">
+                            <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-amber-200">Etyka & Logika</h3>
+                        <p class="text-emerald-100/80 text-base leading-relaxed">
+                            Rzetelny research, unikanie błędów logicznych (fallacies) i szacunek dla oponenta stanowią fundament każdego mojego wystąpienia publicznego.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Motion Showcase Box -->
+                <div class="gold-border-box p-8 bg-emerald-900/20 rounded-lg border-l-4 border-l-amber-400 reveal">
+                    <h3 class="font-cinzel text-amber-300 text-lg mb-2">Ulubiona Teza Debatowa:</h3>
+                    <blockquote class="text-2xl italic text-amber-100 font-serif">
+                        „Ta izba uważa, że rozwój technologii bez zakorzenienia w humanistyce prowadzi do kryzysu moralnego społeczeństwa.”
+                    </blockquote>
+                    <p class="text-sm text-emerald-200/60 mt-4">— Linia obrony oparta na pismach etycznych i analizie socjologicznej.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="academic" class="py-24 px-6 border-t border-amber-900/30 bg-emerald-950/40">
+            <div class="max-w-5xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 reveal">
+                    <div>
+                        <span class="text-amber-400 font-cinzel text-sm tracking-widest uppercase">Portfolio Naukowe</span>
+                        <h2 class="text-4xl font-bold text-amber-100 mt-2">Osiągnięcia & Pasje</h2>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-2" id="filter-buttons">
+                        <button data-filter="all" class="px-4 py-2 border border-amber-500/40 bg-amber-900/40 text-amber-200 text-sm font-cinzel rounded active-filter">Wszystko</button>
+                        <button data-filter="debaty" class="px-4 py-2 border border-amber-900/60 text-emerald-200/80 text-sm font-cinzel rounded hover:border-amber-500/40">Debaty</button>
+                        <button data-filter="edukacja" class="px-4 py-2 border border-amber-900/60 text-emerald-200/80 text-sm font-cinzel rounded hover:border-amber-500/40">Edukacja</button>
+                        <button data-filter="lektury" class="px-4 py-2 border border-amber-900/60 text-emerald-200/80 text-sm font-cinzel rounded hover:border-amber-500/40">Lektury</button>
+                    </div>
+                </div>
+
+                <!-- Academic Grid -->
+                <div class="grid md:grid-cols-2 gap-6" id="academic-grid">
+                    <!-- Item 1 -->
+                    <div class="academic-item debaty gold-border-box p-6 bg-emerald-900/20 rounded reveal">
+                        <span class="text-xs font-cinzel text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded">Debaty</span>
+                        <h3 class="text-xl font-bold text-amber-100 mt-3">Licealna Liga Debat Oxfordzkich</h3>
+                        <p class="text-emerald-100/80 text-sm mt-2">I Miejsce w etapie regionalnym. Przygotowanie strategii argumentacyjnej w tematach dotyczących bioetyki i geopolityki.</p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="academic-item edukacja gold-border-box p-6 bg-emerald-900/20 rounded reveal">
+                        <span class="text-xs font-cinzel text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded">Edukacja</span>
+                        <h3 class="text-xl font-bold text-amber-100 mt-3">Olimpiada Historyczna</h3>
+                        <p class="text-emerald-100/80 text-sm mt-2">Praca badawcza na temat sztuki retorycznej w Europie nowożytnej. Koncentracja na analizie pism i przemówień politycznych.</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="academic-item lektury gold-border-box p-6 bg-emerald-900/20 rounded reveal">
+                        <span class="text-xs font-cinzel text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded">Lektury</span>
+                        <h3 class="text-xl font-bold text-amber-100 mt-3">Kanon Dzieł Klasycznych</h3>
+                        <p class="text-emerald-100/80 text-sm mt-2">Dogłębna lektura dzieł Platona („Państwo”), Marka Aureliusza („Rozmyślania”) oraz klasyków XIX-wiecznej powieści psychologicznej.</p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="academic-item edukacja gold-border-box p-6 bg-emerald-900/20 rounded reveal">
+                        <span class="text-xs font-cinzel text-amber-400 border border-amber-500/30 px-2 py-0.5 rounded">Edukacja</span>
+                        <h3 class="text-xl font-bold text-amber-100 mt-3">Szkolne Koło Humanistyczne</h3>
+                        <p class="text-emerald-100/80 text-sm mt-2">Organizowanie dyskusyjnych klubów książki, redagowanie gazety uczniowskiej oraz przygotowywanie referatów z dziedziny etyki.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quotes" class="py-24 px-6 relative">
+            <div class="max-w-4xl mx-auto text-center space-y-8 reveal">
+                <i data-lucide="quote" class="w-12 h-12 text-amber-400/40 mx-auto"></i>
+                
+                <div class="min-h-[160px] flex flex-col justify-center items-center">
+                    <p id="quote-text" class="text-2xl md:text-3xl italic font-serif text-amber-100 transition-opacity duration-500">
+                        „Słowa mają moc zmieniania świata, jeśli poparte są prawym rozumem.”
+                    </p>
+                    <span id="quote-author" class="block font-cinzel text-amber-400 tracking-widest text-sm mt-4 transition-opacity duration-500">
+                        — Cyceron
+                    </span>
+                </div>
+
+                <button id="next-quote-btn" class="px-6 py-2.5 border border-amber-500/50 hover:bg-amber-900/40 text-amber-200 font-cinzel text-sm tracking-wider rounded transition-all inline-flex items-center gap-2">
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i> Losuj Myśl
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 px-6 border-t border-amber-900/30 bg-emerald-950/60">
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <div class="space-y-6 reveal">
+                    <span class="text-amber-400 font-cinzel text-sm tracking-widest uppercase">Korespondencja</span>
+                    <h2 class="text-4xl font-bold text-amber-100">Skontaktuj się</h2>
+                    <p class="text-emerald-100/80 text-base leading-relaxed">
+                        Chcesz zaprosić nasz klub na debatę sparingową, porozmawiać o literaturze lub wymienić się bibliografią do projektu naukowego? Napisz do mnie.
+                    </p>
+
+                    <div class="space-y-4 pt-4 text-emerald-200/90 text-sm">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-amber-400"></i>
+                            <span>marianna.uczen@szkola.pl</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-amber-400"></i>
+                            <span>Liceum Ogólnokształcące | Biblioteka Szkolna</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" class="space-y-4 gold-border-box p-6 bg-emerald-900/30 rounded reveal">
+                    <div>
+                        <label class="block font-cinzel text-xs text-amber-300 mb-1">Imię / Tytuł</label>
+                        <input type="text" required class="w-full bg-emerald-950 border border-amber-900/60 rounded p-2.5 text-amber-100 focus:outline-none focus:border-amber-400 text-sm">
+                    </div>
+                    <div>
+                        <label class="block font-cinzel text-xs text-amber-300 mb-1">Adres E-mail</label>
+                        <input type="email" required class="w-full bg-emerald-950 border border-amber-900/60 rounded p-2.5 text-amber-100 focus:outline-none focus:border-amber-400 text-sm">
+                    </div>
+                    <div>
+                        <label class="block font-cinzel text-xs text-amber-300 mb-1">Wiadomość / List</label>
+                        <textarea rows="4" required class="w-full bg-emerald-950 border border-amber-900/60 rounded p-2.5 text-amber-100 focus:outline-none focus:border-amber-400 text-sm"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-amber-900/50 hover:bg-amber-800 border border-amber-500/50 text-amber-200 font-cinzel text-sm tracking-widest rounded transition-all">
+                        Wyślij List
+                    </button>
+                    <div id="form-status" class="hidden text-center text-xs text-amber-300 font-cinzel mt-2">
+                        Wiadomość została wysłana z powodzeniem.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 border-t border-amber-900/40 text-center font-cinzel text-xs text-emerald-200/50">
+        <p>&copy; 2026 Marianna • Pilna Uczennica & Dyskutantka • Dark Academia Edition</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Reveal on Scroll logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // trigger once on load
+
+        // Quotes Generator Data
+        const quotes = [
+            { text: "„Słowa mają moc zmieniania świata, jeśli poparte są prawym rozumem.”", author: "— Cyceron" },
+            { text: "„Mądrość rozpoczyna się od zdziwienia.”", author: "— Sokrates" },
+            { text: "„Nie zgadzam się z twoimi poglądami, ale położyć jestem gotów życie, byś miał prawo je wygłaszać.”", author: "— Evelyn Beatrice Hall (często przypisywane Wolterowi)" },
+            { text: "„Kto czyta książki, żyje podwójnie.”", author: "— Umberto Eco" },
+            { text: "„Retoryka jest sztuką odnajdywania w każdym przypadku tego, co jest przekonujące.”", author: "— Arystoteles" }
+        ];
+
+        let quoteIndex = 0;
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+        const nextQuoteBtn = document.getElementById('next-quote-btn');
+
+        nextQuoteBtn.addEventListener('click', () => {
+            quoteText.style.opacity = '0';
+            quoteAuthor.style.opacity = '0';
+
+            setTimeout(() => {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                quoteText.textContent = quotes[quoteIndex].text;
+                quoteAuthor.textContent = quotes[quoteIndex].author;
+                quoteText.style.opacity = '1';
+                quoteAuthor.style.opacity = '1';
+            }, 300);
+        });
+
+        // Filter Logic for Academic Section
+        const filterButtons = document.querySelectorAll('#filter-buttons button');
+        const academicItems = document.querySelectorAll('.academic-item');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('active-filter', 'bg-amber-900/40', 'text-amber-200');
+                    b.classList.add('text-emerald-200/80');
+                });
+                btn.classList.add('active-filter', 'bg-amber-900/40', 'text-amber-200');
+
+                const filter = btn.getAttribute('data-filter');
+                academicItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Ambient Audio Toggle Effect (Web Audio API Synth for Rain/White Noise)
+        let audioCtx = null;
+        let isPlaying = false;
+        let noiseNode = null;
+
+        const audioToggle = document.getElementById('audio-toggle');
+        const soundIcon = document.getElementById('sound-icon');
+
+        function createAmbientSound() {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const bufferSize = audioCtx.sampleRate * 2;
+            const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+            const output = noiseBuffer.getChannelData(0);
+
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1;
+            }
+
+            noiseNode = audioCtx.createBufferSource();
+            noiseNode.buffer = noiseBuffer;
+            noiseNode.loop = true;
+
+            // Lowpass filter to simulate rain outside a library window
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.value = 400;
+
+            const gainNode = audioCtx.createGain();
+            gainNode.gain.value = 0.05; // Soft ambiance
+
+            noiseNode.connect(filter);
+            filter.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+        }
+
+        audioToggle.addEventListener('click', () => {
+            if (!isPlaying) {
+                if (!audioCtx) createAmbientSound();
+                audioCtx.resume();
+                noiseNode.start(0);
+                isPlaying = true;
+                soundIcon.setAttribute('data-lucide', 'volume-2');
+                audioToggle.classList.add('amber-glow');
+            } else {
+                audioCtx.suspend();
+                isPlaying = false;
+                soundIcon.setAttribute('data-lucide', 'volume-x');
+                audioToggle.classList.remove('amber-glow');
+            }
+            lucide.createIcons();
+        });
+
+        // Form Submission Simulation
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formStatus.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
